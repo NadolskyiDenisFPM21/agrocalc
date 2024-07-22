@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<div class="form-block form">
+		<div class="switch-block">
+			<button class="switch" onclick="switchForm(this, 'constB')" id="varB" disabled>Змінні витрати</button>
+			<button class="switch" onclick="switchForm(this, 'varB')" id="constB">Змінити константи</button>
+		</div>
+		<div class="form-div" id="var-form">
+
+			<form method="POST">
+				{% csrf_token %}
+				{{ var_form.as_p }}
+				<p class="right">Курс Грн/{{ crop.rate }}:
+					<span>{{ crop.rate.rate }}</span>
+				</p>
+				<p class="right">Ціна олії при плановому прибутку:
+					<span>{{ crop.oil_price_at_planned_profit }}</span>
+				</p>
+				<p class="right">Фінансовий результат на тонну:
+					<span>{{ crop.price_financial_results }}</span>
+				</p>
+				<p class="right">Фінансовий результат на партію:
+					<span>{{ crop.oil_price_at_planned_profit }}</span>
+				</p>
+				<button class="calculate green-btn" type="submit">Розрахувати</button>
+				<a class="green-btn" href="{% url "results" %}">Повний розрахунок</a>
+			</form>
+		</div>
+
+		<div class="form-div" id="const-form" style="display: none">
+			<form method="POST">
+				{% csrf_token %}
+				{{ const_form.as_p }}
+
+				<p class="right">Переробка:
+					<span>{{ crop.const_recycling }}</span>
+				</p>
+
+				<button class="calculate green-btn" type="submit">Розрахувати</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

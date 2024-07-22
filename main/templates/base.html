@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AGRO</title>
+		<link rel="stylesheet" href={% static "css/style.css" %}>
+        <style>
+            html {
+                background: url("{% static "media/bg_50.jpg" %}") no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+	</head>
+	<body>
+		<a href="users/logout">Вихід</a>
+		{% block content %}{% endblock content %}
+		<script src="{% static "js/scripts.js" %}"></script>
+	</body>
+</html>

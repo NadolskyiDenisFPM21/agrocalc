@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+
+{% block content %}
+
+	<div class="form">
+		<table>
+			<colgroup>
+				<col class="col-1">
+				<col class="col-2">
+				<col class="col-3">
+				<col class="col-4">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>
+						Продукція
+					</th>
+					<th>
+						Ціни без НДС
+					</th>
+					<th>
+						Вага
+					</th>
+					<th>
+						Всього без НДС
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Насіння в переробку</td>
+					<td class="values-cell">{{ crop.price_seeds_in_processing|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_seeds_in_processing|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_seeds_in_processing|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Переробка</td>
+					<td class="values-cell">{{ crop.price_recycling|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_recycling|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_recycling|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Макуха</td>
+					<td class="values-cell">{{ crop.price_makuha|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_makuha|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_makuha|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Пелета</td>
+					<td class="values-cell">{{ crop.price_pellete|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_pellete|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_pellete|custom_intcomma }}</td>
+
+				</tr>
+				<tr>
+					<td>Логістика по маслу</td>
+					<td class="values-cell">{{ crop.price_oil_logistics|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_oil_logistics|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_oil_logistics|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Масло</td>
+					<td class="values-cell">{{ crop.price_oil|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_oil|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_oil|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Податкове навантаження</td>
+					<td class="values-cell"></td>
+					<td class="values-cell"></td>
+					<td class="values-cell">{{ crop.sum_tax_burden|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>ПДВ втрати</td>
+					<td class="values-cell"></td>
+					<td class="values-cell"></td>
+					<td class="values-cell">{{ crop.sum_vat_losses|custom_intcomma }}</td>
+				</tr>
+				<tr>
+					<td>Фінансовий результат</td>
+					<td class="values-cell">{{ crop.price_financial_results|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.weight_financial_results|custom_intcomma }}</td>
+					<td class="values-cell">{{ crop.sum_financial_results|custom_intcomma }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="bottom-form">
+			<table>
+				<colgroup>
+					<col class="col-1">
+					<col class="col-2">
+
+				</colgroup>
+				<thead>
+					<tr>
+						<th colspan="2" style="font-size: 1rem; text-align: center">ПДВ</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Насіння в переробку</td>
+						<td class="values-cell">{{ crop.vat_seeds_in_processing }}</td>
+
+					</tr>
+					<tr>
+						<td>Переробка</td>
+						<td class="values-cell">{{ crop.vat_recycling }}</td>
+
+					</tr>
+					<tr>
+						<td>РАЗОМ податковий кредит</td>
+						<td class="values-cell">{{ crop.sum_vat_credit }}</td>
+
+					</tr>
+				</tbody>
+			</table>
+			<div>
+				<p>Експортувати</p>
+				<a href="{% url "pdf" %}"><img src="{% static "media/ico_pdf.png" %}">
+					PDF</a>
+				<a href="{% url "excel" %}"><img src="{% static "media/ico_excel.png" %}">
+					Excel</a>
+
+			</div>
+
+		</div>
+		<a class="green-btn" href="{% url "index" %}">На головну</a>
+	</div>
+{% endblock %}

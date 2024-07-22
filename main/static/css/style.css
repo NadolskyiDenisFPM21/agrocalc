@@ -1,0 +1,220 @@
+@media(min-width: 992px) {
+    html {
+        height: 100vh;
+    }
+}
+
+@media(max-width: 992px) {
+    html {
+        height: auto;
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+
+}
+
+
+div.form {
+    width: fit-content;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 60%;
+}
+
+input,
+select {
+    width: 30%;
+    padding: 5px;
+    margin-left: 10px;
+    float: right;
+}
+
+.green-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #155759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.green-btn:hover {
+    background-color: #438d8f;
+}
+
+.green-btn:active {
+    background-color: #093637;
+    /* Более темный зеленый фон */
+    box-shadow: 0 5px #666;
+    /* Тень */
+    transform: translateY(4px);
+    /* Сдвиг вниз */
+}
+
+a.green-btn {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    text-decoration: none;
+}
+
+button.green-btn {
+    height: 2.7rem;
+}
+
+.switch-block {
+    display: flex;
+    width: 100%;
+    background-color: #dddddd;
+}
+
+.switch {
+    width: 50%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+table {
+    font-size: .7rem;
+    margin: 1rem;
+
+    .col-1 {
+        width: 10rem;
+    }
+
+    .col-2 {
+        width: 7rem;
+    }
+
+    .col-3 {
+        width: 5rem;
+    }
+
+    .col-4 {
+        width: 7rem;
+    }
+
+    .values-cell {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+    tr {
+
+        th,
+        td {
+            text-align: end;
+            padding-bottom: 1rem;
+        }
+    }
+
+
+}
+
+@media(min-width: 992px) {
+
+    table,
+    .form-block {
+        font-size: 1rem;
+
+        .values-cell {
+            font-size: 1rem;
+        }
+    }
+
+    input,
+    select {
+        height: 1rem;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+@media(max-width: 992px) {
+
+    table,
+    .form-block {
+        font-size: .7rem;
+
+        .values-cell {
+            font-size: .5rem;
+        }
+    }
+
+    input,
+    select {
+        font-size: .5rem;
+        height: .5rem;
+    }
+
+}
+
+
+div.bottom-form {
+    display: inline-flex;
+    width: 100%;
+
+    p {
+        font-weight: bold;
+    }
+
+    div {
+        margin-left: 2rem;
+        padding-top: 2rem;
+        margin-right: 2rem;
+        display: flex;
+        flex-direction: column;
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            color: inherit;
+            padding-bottom: 1rem;
+
+            img {
+                margin-right: .5rem;
+            }
+        }
+    }
+}
+
+
+.right {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    height: auto;
+}
